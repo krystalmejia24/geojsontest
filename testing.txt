@@ -1,0 +1,8 @@
+Due to time constraints, the initial application was very limited in test coverage and thus a big part of this project involved writing test.  Testing was broken up into 3 main components, server side, client side, and coverage.  Server side tests were the first thing developed since we already had a database storage system in place and wanted to make sure it was reliable and stable before developing a mobile application that communicated with our backend. 
+
+Unit tests were created for several cases, the most important being all CRUD operations.  When testing these operations it was important to ensure that data objects were not created if no geometry was present.  Since we are using Leaflet to draw an entire Feature Group as one layer, if a single data object is not in the correct format, i.e it does not have coordinates present, the entire layer will not be drawn and thus we are left with an empty map canvas.  Another set of test cases ensure that the coordinates matched the data type. In other words, a geogpraphical point needs to have one coordinate set, a latitude and longigute point. If more coordinates are present an error will appear and the entire layer will not be drawn.  Paths and Polygons also present a problem if not properly saved. If a Polygon object is accidentally saved as as a Path, the object will be drawn in order of the coordinates present within the geometry. You could be left with something as seen below.
+
+
+
+
+When writing client side tests, 
